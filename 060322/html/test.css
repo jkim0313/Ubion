@@ -1,0 +1,12 @@
+.text_center {
+    text-align: center;
+}
+.text_large {
+    font-size: 200%;
+}
+.text_red {
+    color: red;
+}
+.text_blue {
+    color: blue;
+}

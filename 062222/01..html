@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        $(function(){
+            $("ul.foo").click(function(){                        // 클래스명이 foo인 ul 태그
+                $("li", this).css('background-color', 'red')     // this 클릭을 자신.
+            }, function(){
+                $("li", this).css('background-color', 'blue')
+            })    
+        })
+    </script>
+</head>
+<body>
+    <ul class = "first">
+        <li class="foo">item1</li>
+        <li>item2</li>
+        <li class="bar">item3</li>
+    </ul>
+    <ul class = "second">
+        <li class="foo">item1</li>
+        <li>item2</li>
+        <li class="bar">item3</li>
+    </ul>
+    <script>
+        // first 클래스를 가진 ul 태그
+        $('ul.first').find('foo').css('background-color', 'red')
+        
+        $('ul.second').find('bar').css('background-color', 'green')
+    </script>
+</body>
+</html>

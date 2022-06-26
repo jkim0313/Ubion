@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+ 
+        <input type="radio" id="_use" name="_use" value="가위">가위
+        <input type="radio" id="_use" name="_use" value="바위">바위
+        <input type="radio" id="_use" name="_use" value="보위">보
+        <button id="game">게임시작</button>
+        <p></p>
+
+    <script>
+        $("#game").click(function(){
+            $.post(
+                '/game',
+                {
+                    use : $("#_use").val()
+                },
+                function(data, status){
+                    $("p").text(data.result)
+                }
+            )
+        })
+    </script>
+</body>
+</html>

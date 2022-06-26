@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        $(function(){
+            $("ul.foo").hover(function(){                        // 클래스명이 foo인 ul 태그
+                $("li", this).css('background-color', 'red')     // this 클릭을 자신.
+            }, function(){
+                $("li", this).css('background-color', 'blue')
+            })    
+        })
+    </script>
+</head>
+<body>
+    <ul>
+        <li>test</li>
+    </ul>
+    <ul class="foo">
+        <li>test2</li>
+        <p>123456789</p>
+    </ul>
+
+</body>
+</html>

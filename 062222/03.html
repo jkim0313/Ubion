@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <style>
+        p {
+            margin : 4px;
+            font-size : 16px;
+            font-weight : bolder;
+            cursor : pointer;
+        }
+        .blue {
+            color : blue;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <p class="blue">Click to toggle</p>
+    <p class="blue highlight">highlight</p>
+    <p class="blue">click</p>
+    <button>display</button>
+    <script>
+        // p 태그를 클릭하면 'highlight' class를 추가/삭제
+        $("p").click(function(){
+            $(this).toggleClass("highlight")
+        })
+        // button을 클릭하면 p 태그에 'hidden' class 추가/삭제
+        $("button").click(function(){
+            $("p").toggleClass("hidden")
+        })
+    </script>
+</body>
+</html>

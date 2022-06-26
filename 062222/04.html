@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+    <!-- input 2개를 생성,
+    첫번째 input 값과 두번째 input 값이 같은지를 비교해서
+    메세지 출력 -->
+    <input type="password" id="pass">
+    <input type="password" id="confirm">
+    <!-- <input type="text"> -->
+    <p></p>
+    <script>
+        //$('input').keyup(function(){
+        //    var value = $(this).val()
+        //    $('p').text(value)
+        //})
+        // id 값 선택 $('#id')
+        $('#confirm').keyup(function(){
+            var pass = $('#pass').val()
+            var confirm = $('#confirm').val()
+            if (pass == confirm){
+                $('p').text("값이 일치")
+            }else{
+                $('p').text("값이 불일치")
+            }
+        })
+    </script>
+</body>
+</html>

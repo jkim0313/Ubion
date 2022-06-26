@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div style="width:50%"">
+        <canvas id="myChart"></canvas>
+    </div>
+    <table>
+        <tr>
+            <th>등록일시</th>
+            <th>일일사망자</th>
+            <th>일일확진자</th>
+        </tr>
+        {%for i in range(0, cnt)%}
+        <tr>
+            <th>{{date_list[i]}}</th>
+            <th>{{decide[i]}}</th>
+            <th>{{inf[i]}}</th>
+        </tr>
+        {%endfor%}
+    </table>
+    <script>
+        const data = {labels: {{date_list | tojson}},
+          datasets: [{
+            label: 'Death',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: {{decide | tojson}},
+          },
+            {label: 'Confirmed',
+            backgroundColor: 'rgb(0,0,255)',
+            borderColor: 'rgb(0,0,255)',
+            data: {{inf | tojson}},
+        }]
+        };  
+        const config = {type: 'line', data: data, options: {}};
+    </script>
+
+    <script>
+        const myChart = new Chart(
+          document.getElementById('myChart'),
+          config
+        );
+    </script>
+      
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+</head>
+<body>
+    <button id="ajax_get">ajax_get</button>
+    <button id="get">get</button>
+    <script>
+        $(function(){
+            $("#ajax_get").click(function(){
+                $.ajax({
+                    url : '/ajax_get',
+                    data : {},
+                    method : 'GET',
+                    dataType : 'json',
+                })
+                .done(function(result){                     // 비동기 통신이 정상적으로 작동됐을때
+                    alert(result.name)
+                })
+                .fail(function(xhr, status, errorThrown){   // 통신 실패
+                    alert(status)
+                })
+                .always(function(xhr, status){              // 성공, 실패 상관없이 마지막에 실행
+                    alert("통신 요청 완료")
+                })
+            })
+        })
+        $("#get").click(function(){
+            $.get(
+                '/ajax_get',
+                {},
+                function(result, status){
+                    alert(result.name)
+                }
+            )
+        })
+    </script>
+</body>
+</html>
